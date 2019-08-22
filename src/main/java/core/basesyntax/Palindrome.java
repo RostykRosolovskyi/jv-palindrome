@@ -3,7 +3,8 @@ package core.basesyntax;
 public class Palindrome {
 
     /**
-     * <p>Реализуйте метод, проверяющий, является ли заданная строка палиндромом. Палиндромом называется
+     * <p>Реализуйте метод, проверяющий, является ли заданная строка палиндромом. Палиндромом
+     * называется
      * строка, которая читается одинаково слева направо и справа налево (в том числе пустая).
      * При определении "палиндромности" строки должны учитываться только буквы и цифры. А пробелы,
      * знаки препинания, а также регистр символов должны игнорироваться.</p>
@@ -20,6 +21,9 @@ public class Palindrome {
      * <p>Результат: true</p>
      */
     public boolean isPalindrome(String text) {
-        return false;
+        text = text.replaceAll("[^A-Za-zА-Яа-я0-9]", "").toUpperCase();
+        StringBuilder reverseString = new StringBuilder(text);
+        reverseString.reverse();
+        return reverseString.toString().equals(text);
     }
 }
